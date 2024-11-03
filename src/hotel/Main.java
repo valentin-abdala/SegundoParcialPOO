@@ -32,6 +32,25 @@ public class Main {
 				
 				do {
 					opcionHuesped = JOptionPane.showOptionDialog(null, "Selecciona una opción.", null, 1, 1, null, menuHuesped, menuHuesped[0]);
+					
+					switch (opcionHuesped) {
+					case 0:
+						hotel.realizarReserva(huesped, habitacion1, habitacion2, habitacion3, habitacion4);
+						break;
+					case 1:
+						if (huesped.getHabitacionDeseada() == null) {
+							JOptionPane.showMessageDialog(null, "Selecciona una habitación antes.");
+						} else {
+							huesped.getHabitacionDeseada().verificarDisponibilidad(huesped);
+						}
+						break;
+					case 2:
+						huesped.mostrarDatos();
+						break;
+					case 3:
+						JOptionPane.showMessageDialog(null, "Cerrando sesión...");
+						break;
+					}
 				} while (opcionHuesped != 3);
 				break;
 			case 1:

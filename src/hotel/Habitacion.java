@@ -64,12 +64,11 @@ public class Habitacion {
 	}
 	
 	public void verificarDisponibilidad(Huesped huesped) {
-		if (huesped.getHabitacionDeseada() == null) {
-			JOptionPane.showMessageDialog(null, "Selecciona una habitación antes.");
-			String[] opcionesExtras = { "Reservar otro tipo", "Cancelar" };
-			
+		if (huesped.isReservaHecha()) {
+			JOptionPane.showMessageDialog(null, "Ya tiene una reserva.");
+		} else {
 			if (huesped.getHabitacionDeseada().isOcupado()) {
-				int opcion = JOptionPane.showOptionDialog(null, "Lo sentimos, ese tipo de habitación no se encuentra disponible. Puedes reservar otro tipo de habitación si lo deseas.", null, 1, 1, null, opcionesExtras, opcionesExtras[0]);
+				JOptionPane.showMessageDialog(null, "Lo sentimos, ese tipo de habitación no se encuentra disponible. Puedes reservar otro tipo de habitación si lo deseas.");
 			} else {
 				huesped.setDias(Integer.parseInt(JOptionPane.showInputDialog("Ingresa la cantidad de noches que deseas.")));
 				setPrecioXNoche(getPrecioXNoche() * huesped.getDias());
@@ -79,6 +78,7 @@ public class Habitacion {
 				int tarjeta = validarInteger(Integer.parseInt(JOptionPane.showInputDialog("Ingresa tu número de tarjeta.")));
 				
 				JOptionPane.showMessageDialog(null, "Reserva realizada con éxito.");
+				huesped.setReservaHecha(true);
 			}
 		}
 	}

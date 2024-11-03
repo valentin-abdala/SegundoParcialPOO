@@ -79,10 +79,30 @@ public class Huesped extends Usuario {
 	public void registrar() {
 		super.registrar();
 		pasaporte = validarCadena(JOptionPane.showInputDialog("Ingresa tu pasaporte."));
-		telefono = validarInteger(Integer.parseInt("Ingresa tu número telefónico."));
+		telefono = validarInteger(Integer.parseInt(JOptionPane.showInputDialog("Ingresa tu número telefónico.")));
 		mail = validarCadena(JOptionPane.showInputDialog("Ingresa tu correo electrónico."));
 	}
 	
+		@Override
+	public void mostrarDatos() {
+		super.mostrarDatos();
+		if (reservaHecha) {
+			JOptionPane.showMessageDialog(null, "Nombre: " + nombre 
+					+ "\nContraseña: " + contrasena 
+					+ "\nPasaporte: " + pasaporte 
+					+ "\nCorreo electrónico: " + mail 
+					+ "\nNro telefónico: " + telefono 
+					+ "\nNro de habitación: " + getHabitacionDeseada().getNumeroHabitacion() 
+					+ "\nDías alojado: " + dias);
+		} else {
+			JOptionPane.showMessageDialog(null, "Nombre: " + nombre 
+					+ "\nContraseña: " + contrasena 
+					+ "\nPasaporte: " + pasaporte 
+					+ "\nCorreo electrónico: " + mail 
+					+ "\nNro telefónico: " + telefono);
+		}
+	}
+
 	public String validarCadena(String cadena) {
 		while (cadena.isEmpty()) {
 			cadena = JOptionPane.showInputDialog("Error. Reingresa los datos.");

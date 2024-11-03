@@ -33,8 +33,7 @@ public class Hotel {
 	}
 	
 	public void realizarReserva(Huesped huesped, Habitacion habitacion1, Habitacion habitacion2, Habitacion habitacion3, Habitacion habitacion4) {
-		if (huesped.isReservaHecha()) {
-			JOptionPane.showMessageDialog(null, "Ya tienes una reserva.");
+		if (!huesped.isReservaHecha()) {
 			String[] tiposHabitacion = { habitacion1.getTipo(), habitacion2.getTipo(), habitacion3.getTipo(), habitacion4.getTipo() };
 			
 			int tipo = JOptionPane.showOptionDialog(null, "Selecciona un tipo de habitación.", null, 1, 1, null, tiposHabitacion, tiposHabitacion[0]);
@@ -53,8 +52,9 @@ public class Hotel {
 				huesped.setHabitacionDeseada(habitacion4);
 				break;
 			}
+		} else {
+			JOptionPane.showMessageDialog(null, "Ya tienes una reserva.");
 		}
-		
 	}
 	
 }
