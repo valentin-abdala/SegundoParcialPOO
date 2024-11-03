@@ -34,10 +34,10 @@ public class Main {
 					opcionCliente = JOptionPane.showOptionDialog(null, "Selecciona una opción.", null, 1, 1, null, menuCliente, menuCliente[0]);
 					switch (opcionCliente) {
 					case 0:
-						
+						cliente.seleccionarLibro(libro1, libro2, libro3);
 						break;
 					case 1:
-						
+						cliente.finalizarCompra();
 						break;
 					case 2:
 						cliente.mostrarDatos(libreria);

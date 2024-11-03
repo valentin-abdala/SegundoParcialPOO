@@ -86,7 +86,7 @@ public class Cliente extends Usuario {
 			JOptionPane.showMessageDialog(null, "Selecciona un libro antes.");
 		} else {
 			JOptionPane.showMessageDialog(null, "Monto a pagar: $" + libroSeleccionado.getPrecio());
-			String[] metodosPago = { "Tarjeta", "Mercado Pago", "Efectivo" };
+			String[] metodosPago = { "Tarjeta", "Mercado Pago (5% de descuento)", "Efectivo (10% de descuento)" };
 			
 			int formaPago = JOptionPane.showOptionDialog(null, "Selecciona el método de pago que utilizarás.", null, 1, 1, null, metodosPago, metodosPago[0]);
 			
@@ -97,14 +97,16 @@ public class Cliente extends Usuario {
 				numeroTarjeta = validarInteger(Integer.parseInt(JOptionPane.showInputDialog("Ingresa tu número de tarjeta.")));
 				break;
 			case 1:
-				metodoPago = "Mercado Pago (5% de descuento)";
+				metodoPago = "Mercado Pago";
 				
 				libroSeleccionado.setPrecio(libroSeleccionado.getPrecio() * 0.95);
+				JOptionPane.showMessageDialog(null, "Monto con descuento: $" + libroSeleccionado.getPrecio());
 				break;
 			case 2:
-				metodoPago = "Efectivo (10% de descuento)";
+				metodoPago = "Efectivo";
 				
 				libroSeleccionado.setPrecio(libroSeleccionado.getPrecio() * 0.90);
+				JOptionPane.showMessageDialog(null, "Monto con descuento: $" + libroSeleccionado.getPrecio());
 				break;
 			}
 			JOptionPane.showMessageDialog(null, "Compra realizada con éxito. Su libro, " 
@@ -117,7 +119,7 @@ public class Cliente extends Usuario {
 	public void mostrarDatos(Libreria libreria) {
 		super.mostrarDatos(libreria);
 		if (metodoPago.equals("")) {
-			JOptionPane.showMessageDialog(null, "Usuario: Cliente\nNombre: " + nombre + "\nContraseña: " + contrasena + "\nMétodo de pago: Indefinido");
+			JOptionPane.showMessageDialog(null, "Usuario: Cliente\nNombre: " + nombre + "\nContraseña: " + contrasena + "\nDirección: " + direccion + "\nMétodo de pago: Indefinido");
 		} else {
 			JOptionPane.showMessageDialog(null, "Usuario: Cliente\nNombre: " + nombre + "\nContraseña: " + contrasena + "\nDirección: " + direccion + "\nMétodo de pago: " + metodoPago);
 		}
