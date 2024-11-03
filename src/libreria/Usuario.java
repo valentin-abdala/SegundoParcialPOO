@@ -1,5 +1,7 @@
 package libreria;
 
+import javax.swing.JOptionPane;
+
 public class Usuario {
 	private String nombre;
 	private String contrasena;
@@ -30,4 +32,22 @@ public class Usuario {
 		return "Usuario [nombre=" + nombre + ", contrasena=" + contrasena + "]";
 	}
 	
+	public void registrar() {
+		nombre = validarCadena(JOptionPane.showInputDialog("Ingresa tu nombre."));
+		contrasena = validarCadena(JOptionPane.showInputDialog("Ingresa tu contraseña."));
+	}
+	
+	public String validarCadena(String cadena) {
+		while (cadena.isEmpty()) {
+			cadena = JOptionPane.showInputDialog("Error. Reingresa los datos.");
+		}
+		return cadena;
+	}
+	
+	public int validarInteger(int numero) {
+		while (numero < 0) {
+			numero = Integer.parseInt(JOptionPane.showInputDialog("Error. Reingresa los datos."));
+		}
+		return numero;
+	}
 }

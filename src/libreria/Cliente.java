@@ -53,4 +53,8 @@ public class Cliente extends Usuario {
 				+ ", libroSeleccionado=" + libroSeleccionado + "]";
 	}
 		
+	@Override
+	public void registrar() {
+		super.registrar();
+	}
 }

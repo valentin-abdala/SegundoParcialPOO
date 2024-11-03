@@ -21,4 +21,9 @@ public class Admin extends Usuario {
 		return "Admin [libreria=" + libreria + "]";
 	}
 	
+	@Override
+	public void registrar() {
+		super.registrar();
+	}
+	
 }
