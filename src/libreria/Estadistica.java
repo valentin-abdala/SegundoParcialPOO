@@ -110,26 +110,34 @@ public class Estadistica {
 	}
 	
 	public void calcularTotalFacturado() {
-		int ventasDiarias = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la cantidad aproximada de libros vendidos por día."));
-		ventasTotales = ventasDiarias * 26;
-		
-		if (libroMasVendido.equals("El Señor de los Anillos")) {
-			totalFacturado = ventasTotales * 6000;
-		} else if (libroMasVendido.equals("Harry Potter")) {
-			totalFacturado = ventasTotales * 4000;
-		} else if (libroMasVendido.equals("Don Quijote")) {
-			totalFacturado = ventasTotales * 2000;
+		if (libroMasVendido.equals("")) {
+			JOptionPane.showMessageDialog(null, "Registra los más vendidos antes.");
+		} else {
+			int ventasDiarias = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la cantidad aproximada de libros vendidos por día."));
+			ventasTotales = ventasDiarias * 26;
+			
+			if (libroMasVendido.equals("El Señor de los Anillos")) {
+				totalFacturado = ventasTotales * 6000;
+			} else if (libroMasVendido.equals("Harry Potter")) {
+				totalFacturado = ventasTotales * 4000;
+			} else if (libroMasVendido.equals("Don Quijote")) {
+				totalFacturado = ventasTotales * 2000;
+			}
 		}
 	}
 	
 	public void verEstadisticas() {
-		String mes = validarCadena(JOptionPane.showInputDialog("Ingresa el mes de las estadísticas."));
-		JOptionPane.showMessageDialog(null, "Estadísticas de " + mes 
-				+ "\nLibro más vendido: " + libroMasVendido 
-				+ "\nAutor más popular: " + autorMasPopular 
-				+ "\nGénero más vendido: " + generoMasVendido 
-				+ "\nVentas totales: " + ventasTotales 
-				+ "\nTotal facturado: $" + totalFacturado);
+		if (totalFacturado == 0) {
+			JOptionPane.showMessageDialog(null, "Registra todos los datos antes.");
+		} else {
+			String mes = validarCadena(JOptionPane.showInputDialog("Ingresa el mes de las estadísticas."));
+			JOptionPane.showMessageDialog(null, "Estadísticas de " + mes + " (no operamos los domingos)"
+					+ "\nLibro más vendido: " + libroMasVendido 
+					+ "\nAutor más popular: " + autorMasPopular 
+					+ "\nGénero más vendido: " + generoMasVendido 
+					+ "\nVentas totales: " + ventasTotales 
+					+ "\nTotal facturado: $" + totalFacturado);
+		}
 	}
 	
 	public String validarCadena(String cadena) {

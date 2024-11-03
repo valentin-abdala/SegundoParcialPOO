@@ -3,8 +3,8 @@ package libreria;
 import javax.swing.JOptionPane;
 
 public class Usuario {
-	private String nombre;
-	private String contrasena;
+	protected String nombre;
+	protected String contrasena;
 	
 	public Usuario(String nombre, String contrasena) {
 		this.nombre = nombre;
@@ -35,6 +35,10 @@ public class Usuario {
 	public void registrar() {
 		nombre = validarCadena(JOptionPane.showInputDialog("Ingresa tu nombre."));
 		contrasena = validarCadena(JOptionPane.showInputDialog("Ingresa tu contraseña."));
+	}
+	
+	public void mostrarDatos(Libreria libreria) {
+		
 	}
 	
 	public String validarCadena(String cadena) {

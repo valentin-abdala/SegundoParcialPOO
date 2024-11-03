@@ -1,5 +1,7 @@
 package libreria;
 
+import javax.swing.JOptionPane;
+
 public class Admin extends Usuario {
 	private Libreria libreria;
 
@@ -25,5 +27,11 @@ public class Admin extends Usuario {
 	public void registrar() {
 		super.registrar();
 	}
-	
+
+	@Override
+	public void mostrarDatos(Libreria libreria) {
+		super.mostrarDatos(libreria);
+		JOptionPane.showMessageDialog(null, "Usuario: Administrador\nNombre: " + nombre + "\nContraseña: " + contrasena + "\nLibrería: " + libreria.getNombre());
+	}
+
 }
