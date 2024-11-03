@@ -123,6 +123,7 @@ public class Estadistica {
 			} else if (libroMasVendido.equals("Don Quijote")) {
 				totalFacturado = ventasTotales * 2000;
 			}
+			JOptionPane.showMessageDialog(null, "Total facturado apróximadamente: $" + totalFacturado);
 		}
 	}
 	
