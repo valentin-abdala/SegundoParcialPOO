@@ -20,5 +20,10 @@ public class Admin extends Usuario {
 	public String toString() {
 		return "Admin [hotel=" + hotel + "]";
 	}
+
+	@Override
+	public void registrar() {
+		super.registrar();
+	}
 	
 }
