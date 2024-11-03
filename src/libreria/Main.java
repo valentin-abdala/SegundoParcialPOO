@@ -19,8 +19,8 @@ public class Main {
 		String[] menuAdmin = { "Registrar estadísticas", "Calcular total facturado", "Ver estadísticas", "Ver datos de usuario", "Salir" };
 		
 		int opcionUsuario = 0;
-		int opcionAdmin = 0;
 		int opcionCliente = 0;
+		int opcionAdmin = 0;
 		
 		do {
 			opcionUsuario = JOptionPane.showOptionDialog(null, "Selecciona un rol.", null, 1, 1, null, menuUsuario, menuUsuario[0]);
