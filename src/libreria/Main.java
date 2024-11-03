@@ -11,14 +11,12 @@ public class Main {
 		Libro libro1 = new Libro("El Señor de los Anillos", "J. R. R. Tolkien", "Ficción de aventura", 6000, libreria);
 		Libro libro2 = new Libro("Harry Potter", "J. K. Rowling", "Fantasía", 4000, libreria);
 		Libro libro3 = new Libro("Don Quijote", "Miguel de Cervantes", "Novela psicológica", 2000, libreria);
-		Cliente cliente = new Cliente("", "", "", 0, 0, null);
+		Cliente cliente = new Cliente("", "", "", "", 0, null);
 		Admin admin = new Admin("", "", libreria);
 		
 		String[] menuUsuario = { "Cliente", "Admin", "Salir" };
 		String[] menuCliente = { "Seleccionar libro", "Finalizar compra", "Ver datos de usuario", "Salir" };
 		String[] menuAdmin = { "Registrar estadísticas", "Calcular total facturado", "Ver estadísticas", "Ver datos de usuario", "Salir" };
-		
-		String[] metodosPago = { "Tarjeta", "Mercado Pago", "Efectivo" };
 		
 		int opcionUsuario = 0;
 		int opcionAdmin = 0;
@@ -42,7 +40,7 @@ public class Main {
 						
 						break;
 					case 2:
-						
+						cliente.mostrarDatos(libreria);
 						break;
 					case 3:
 						JOptionPane.showMessageDialog(null, "Cerrando sesión...");
