@@ -6,7 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Hotel hotel = new Hotel("Torres del Sol", "Buenos Aires");
+		Estadistica estadistica = new Estadistica(0, 0, 0, 0, 0, 0);
+		Hotel hotel = new Hotel("Torres del Sol", "Buenos Aires", estadistica);
 		Habitacion habitacion1 = new Habitacion(112, false, "Individual", 10000, hotel);
 		Habitacion habitacion2 = new Habitacion(198, true, "Doble", 20000, hotel);
 		Habitacion habitacion3 = new Habitacion(356, false, "Vistas a la ciudad", 35000, hotel);
@@ -16,7 +17,7 @@ public class Main {
 		
 		String[] menuUsuario = { "Huésped", "Admin", "Salir" };
 		String[] menuHuesped = { "Realizar reserva", "Verificar disponibilidad", "Ver datos de usuario", "Salir" };
-		String[] menuAdmin = { "Registrar estadísticas", "Calcular total facturado", "Ver estadísticas", "Ver datos de usuario", "Salir" };
+		String[] menuAdmin = { "Registrar estadísticas mensuales", "Ver estadísticas", "Ver datos de usuario", "Salir" };
 		
 		int opcionUsuario = 0;
 		int opcionHuesped = 0;
@@ -59,6 +60,21 @@ public class Main {
 
 				do {
 					opcionAdmin = JOptionPane.showOptionDialog(null, "Selecciona una opción.", null, 1, 1, null, menuAdmin, menuAdmin[0]);
+					
+					switch (opcionAdmin) {
+					case 0:
+						estadistica.registrarEstadisticas();
+						break;
+					case 1:
+						estadistica.verEstadisticas();
+						break;
+					case 2:
+						admin.mostrarDatos();
+						break;
+					case 3:
+						JOptionPane.showMessageDialog(null, "Cerrando sesión...");
+						break;
+					}
 				} while (opcionAdmin != 3);
 				break;
 			case 2:

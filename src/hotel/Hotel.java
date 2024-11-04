@@ -5,10 +5,12 @@ import javax.swing.JOptionPane;
 public class Hotel {
 	private String nombre;
 	private String ciudad;
+	private Estadistica estadistica;
 	
-	public Hotel(String nombre, String ciudad) {
+	public Hotel(String nombre, String ciudad, Estadistica estadistica) {
 		this.nombre = nombre;
 		this.ciudad = ciudad;
+		this.estadistica = estadistica;
 	}
 
 	public String getNombre() {
@@ -27,11 +29,14 @@ public class Hotel {
 		this.ciudad = ciudad;
 	}
 
-	@Override
-	public String toString() {
-		return "Hotel [nombre=" + nombre + ", ciudad=" + ciudad + "]";
+	public Estadistica getEstadistica() {
+		return estadistica;
 	}
-	
+
+	public void setEstadistica(Estadistica estadistica) {
+		this.estadistica = estadistica;
+	}
+
 	public void realizarReserva(Huesped huesped, Habitacion habitacion1, Habitacion habitacion2, Habitacion habitacion3, Habitacion habitacion4) {
 		if (!huesped.isReservaHecha()) {
 			String[] tiposHabitacion = { habitacion1.getTipo(), habitacion2.getTipo(), habitacion3.getTipo(), habitacion4.getTipo() };

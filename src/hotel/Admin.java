@@ -1,5 +1,7 @@
 package hotel;
 
+import javax.swing.JOptionPane;
+
 public class Admin extends Usuario {
 	private Hotel hotel;
 
@@ -25,5 +27,11 @@ public class Admin extends Usuario {
 	public void registrar() {
 		super.registrar();
 	}
-	
+
+	@Override
+	public void mostrarDatos() {
+		super.mostrarDatos();
+		JOptionPane.showMessageDialog(null, "Nombre: " + nombre + "\nContraseña: " + contrasena + "\nHotel: Torres del Sol\nCiudad: Buenos Aires");
+	}
+
 }
